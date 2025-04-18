@@ -1,0 +1,26 @@
+<div class="container mt-2 mx-1">
+    <h1 class="text-center">Chats</h1>
+</div>
+
+<body>
+    <div class="container mt-4 mx-4">
+        <table border="1" class="table table-secondary table-striped">
+        <thead>
+            <tr>
+            <th>Sender ID</th>
+            <th>Receiver ID</th>
+            <th>More Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @chats.each do |chat| %>
+            <tr>
+                <td><%= chat.sender_id %></td>
+                <td><%= chat.receiver_id %></td>
+                <td><%= link_to 'view', chat_path(chat), class:"btn btn-success" %></td>
+            </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+</body>

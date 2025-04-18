@@ -1,0 +1,27 @@
+<div class="container mt-2 mx-1">
+    <h1>Message from chat number <%= @message.chat_id %></h1>
+</div>
+
+<div class="container mt-4 mx-4">
+    <li>
+        ID: <%= @message.id %>
+    </li>
+    <li>
+        Chat ID: <%= @message.chat_id %>
+    </li>
+    <li>
+        User ID: <%= @message.user_id %>
+    </li>
+    <li>
+        Body: <%= @message.body %>
+    </li>
+    <li>
+        Creation Date: <%= @message.created_at %>
+    </li>
+    <li>
+        Last Update: <%= @message.updated_at %>
+    </li>
+    <p></p>
+    <%= link_to 'Back', messages_path, class: "btn btn-success" %>
+    
+</div>
