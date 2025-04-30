@@ -118,61 +118,61 @@ Chat.create!(
   receiver_id: 9
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 1,
   user_id: 9,
   body: "Hello"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 2,
   user_id: 7,
   body: "How are you?"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 3,
   user_id: 6,
   body: "I'm fine"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 4,
   user_id: 4,
   body: "What are yoou doing?"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 5,
   user_id: 3,
   body: "I'm playin with my dog"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 6,
   user_id: 1,
   body: "I like to go out"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 7,
   user_id: 6,
   body: "I'm leaving next week"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 8,
   user_id: 5,
   body: "Have fun!"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 9,
   user_id: 2,
   body: "Let's hang out!"
 )
 
-Messages.create!(
+Message.create!(
   chat_id: 10,
   user_id: 3,
   body: "Sure!"

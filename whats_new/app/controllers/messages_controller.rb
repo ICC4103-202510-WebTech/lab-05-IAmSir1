@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
     def index
-        @messages = Messages.all
+        @messages = Message.all
     end
     def show
-        @message = Messages.find(params["id"])
+        @message = Message.find(params["id"])
     end
 end
