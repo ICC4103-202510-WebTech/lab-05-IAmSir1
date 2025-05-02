@@ -1,0 +1,25 @@
+<%= form_with model: @user do |form| %>
+    <div class="container mt-4 mx-4">
+        <div class="mb-3 w-50">
+            <%= form.label :first_name, "First Name" %>
+            <%= form.text_field :first_name, placeholder: "Write First Name...", class:"form-control" %>
+            <p></p>
+        </div>
+
+        <div class="mb-3 w-50">
+            <%= form.label :last_name, "Last name" %>
+            <%= form.text_field :last_name, placeholder: "Write Last Name...", class:"form-control"%>
+            <p></p>
+        </div>
+
+        <div class="mb-3 w-50">
+            <%= form.label :email, "Email" %>
+            <%= form.email_field :email, placeholder: "Write Email...", class:"form-control" %>
+            <p></p>
+        </div>
+
+        <div>
+            <%= form.submit "Save", class:"btn btn-success" %>
+        </div>
+    </div>
+<% end %>

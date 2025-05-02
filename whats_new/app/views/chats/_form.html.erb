@@ -1,0 +1,21 @@
+<%= form_with model: @chat do |form| %>
+  <div class="container mt-4 mx-4">
+    <div>
+      <%= form.label :sender_id, "Sender" %>
+      <%= form.select :sender_id, User.all.collect { |u| [u.email, u.id] } %>
+      <p>
+      </p>
+    </div>
+  
+    <div>
+      <%= form.label :receiver_id, "Receiver" %>
+      <%= form.select :receiver_id, User.all.collect { |u| [u.email, u.id] } %>
+      <p>
+      </p>
+    </div>
+  
+    <div>
+      <%= form.submit "Create Chat", class:"btn btn-success"%>
+    </div>
+  </div>
+<% end %>
