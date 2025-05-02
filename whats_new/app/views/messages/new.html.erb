@@ -3,3 +3,14 @@
 </div>
 
 <%= render partial: "form" %>
+<p></p>
+<% if @message.errors.any? %>
+  <div class="alert alert-danger">
+    <h4>Unable to create the message:</h4>
+    <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

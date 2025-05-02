@@ -3,3 +3,14 @@
 </div>
 
 <%= render partial: "form" %>
+<p></p>
+<% if @chat.errors.any? %>
+  <div class="alert alert-danger">
+    <h4>Unable to create chat:</h4>
+    <ul>
+      <% @chat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
