@@ -10,6 +10,7 @@
             <th>Sender ID</th>
             <th>Receiver ID</th>
             <th>More Information</th>
+            <th></th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +18,8 @@
             <tr>
                 <td><%= chat.sender_id %></td>
                 <td><%= chat.receiver_id %></td>
-                <td><%= link_to 'view', chat_path(chat), class:"btn btn-success" %></td>
+                <td><%= link_to 'View', chat_path(chat), class:"btn btn-success" %></td>
+                <td><%= link_to 'Edit', edit_chat_path(chat), class:"btn btn-success" %></td>
             </tr>
             <% end %>
         </tbody>

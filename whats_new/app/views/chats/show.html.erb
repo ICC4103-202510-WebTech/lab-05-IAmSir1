@@ -3,23 +3,35 @@
 </div>
 
 <div class="container mt-4 mx-4">
-    <li>
-        ID: <%= @chat.id %>
-    </li>
-    <li>
-        Sender ID: <%= @chat.sender_id %>
-    </li>
-    <li>
-        Last Name: <%= @chat.receiver_id %>
-    </li>
-    <li>
-        Creation Date: <%= @chat.created_at %>
-    </li>
-    <li>
-        Last Update: <%= @chat.updated_at %>
-    </li>
+    <p><strong>ID:</strong> <%= @chat.id %></p>
+
+    <p><strong>Sender ID:</strong> <%= @chat.sender_id %></p>
+
+    <p><strong>Last Name:</strong> <%= @chat.receiver_id %></p>
+
+    <p><strong>Creation Date:</strong> <%= @chat.created_at.strftime("%B %d, %Y %H:%M") %></p>
+    
+    <p><strong>Last Update:</strong> <%= @chat.updated_at.strftime("%B %d, %Y %H:%M") %></p>
+    <p></p>
+
+    <p><strong>Sent by:</strong> <%= @chat.sender.first_name %> <%= @chat.sender.last_name %></p>
+    <p><strong>Received by:</strong> <%= @chat.receiver.first_name %> <%= @chat.receiver.last_name %></p>
+
+    <p><strong>Sent messages:</strong></p>
+    <ul>
+    <% @chat.messages.each do |message| %>
+        <li>
+            Chat number <%= message.chat.id %>: 
+            <%= message.body %>
+        </li>
+      <% end %>
+    </ul>
+
     <p></p>
     <%= link_to 'Back', chats_path, class: "btn btn-success" %>
+    <%= link_to 'Edit', edit_chat_path, class:"btn btn-success" %>
     <%= link_to 'New chat', new_chat_path, class:"btn btn-success" %>
     
 </div>
+
+

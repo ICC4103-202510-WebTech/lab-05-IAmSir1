@@ -3,26 +3,24 @@
 </div>
 
 <div class="container mt-4 mx-4">
-    <li>
-        ID: <%= @message.id %>
-    </li>
-    <li>
-        Chat ID: <%= @message.chat_id %>
-    </li>
-    <li>
-        User ID: <%= @message.user_id %>
-    </li>
-    <li>
-        Body: <%= @message.body %>
-    </li>
-    <li>
-        Creation Date: <%= @message.created_at %>
-    </li>
-    <li>
-        Last Update: <%= @message.updated_at %>
-    </li>
+    <p><strong>Message ID: </strong><%= @message.id %></p>
+
+    <p><strong>Chat ID: </strong><%= @message.chat_id %></p>
+
+    <p><strong>User ID: </strong><%= @message.user_id %></p>
+
+    <p><strong>Author:</strong> <%= @message.user.first_name %></p>
+
+    <p><strong>Body: </strong><%= @message.body %></p>
+
+    <p><strong>Creation Date: </strong><%= @message.created_at.strftime("%B %d, %Y %H:%M") %></p>
+
+    <p><strong>Last Update: </strong><%= @message.updated_at.strftime("%B %d, %Y %H:%M") %></p>
+    <p></p>
+    
     <p></p>
     <%= link_to 'Back', messages_path, class: "btn btn-success" %>
+    <%= link_to 'Edit', edit_message_path, class: "btn btn-success" %>
     <%= link_to 'New message', new_message_path, class:"btn btn-success" %>
     
 </div>

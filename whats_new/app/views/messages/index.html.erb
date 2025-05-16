@@ -11,6 +11,7 @@
             <th>User ID</th>
             <th>Body</th>
             <th>More Information</th>
+            <th></th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +20,8 @@
                 <td><%= message.chat_id %></td>
                 <td><%= message.user_id %></td>
                 <td><%= message.body %></td>
-                <td><%= link_to 'view', message_path(message), class:"btn btn-success" %></td>
+                <td><%= link_to 'View', message_path(message), class:"btn btn-success" %></td>
+                <td><%= link_to 'Edit', edit_message_path(message), class:"btn btn-success" %></td>
             </tr>
             <% end %>
         </tbody>

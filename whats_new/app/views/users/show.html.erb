@@ -3,23 +3,50 @@
 </div>
 
 <div class="container mt-4 mx-4">
-    <li>
-        ID: <%= @user.id %>
-    </li>
-    <li>
-        Name: <%= @user.first_name %>
-    </li>
-    <li>
-        Last Name: <%= @user.last_name %>
-    </li>
-    <li>
-        Creation Date: <%= @user.created_at %>
-    </li>
-    <li>
-        Last Update: <%= @user.updated_at %>
-    </li>
+    <p><strong>ID:</strong> <%= @user.id %></p>
+
+    <p><strong>Name:</strong> <%= @user.first_name %></p>
+
+    <p><strong>Last Name:</strong> <%= @user.last_name %></p>
+
+    <p><strong>Creation Date:</strong> <%= @user.created_at.strftime("%B %d, %Y %H:%M") %></p>
+
+    <p><strong>Last Update:</strong> <%= @user.updated_at.strftime("%B %d, %Y %H:%M") %></p>
+
+    <p></p>
+
+    <p><strong>This user has sent messages to:</strong></p>
+    <ul>
+    <% @user.sent_chats.each do |chat| %>
+        <li>
+        <%= chat.receiver.first_name %> 
+        (Chat ID: <%= chat.id %>)
+        </li>
+    <% end %>
+    </ul>
+
+    <p><strong>This user has received messages from:</strong></p>
+    <ul>
+    <% @user.received_chats.each do |chat| %>
+        <li>
+        <%= chat.sender.first_name%> 
+        (Chat ID: <%= chat.id %>)
+        </li>
+    <% end %>
+    </ul>
+
+    <p><strong>Sent messages:</strong></p>
+    <ul>
+    <% @user.messages.each do |message| %>
+        <li>
+        Chat number <%= message.chat.id %>: 
+        <%= message.body %>
+        </li>
+    <% end %>
+    </ul>
+
     <p></p>
     <%= link_to 'Back', users_path, class: "btn btn-success" %>
+    <%= link_to 'Edit', edit_user_path, class:"btn btn-success" %>
     <%= link_to 'New user', new_user_path, class:"btn btn-success" %>
-    
 </div>
