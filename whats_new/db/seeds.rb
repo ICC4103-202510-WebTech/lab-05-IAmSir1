@@ -11,61 +11,81 @@
 User.create!(
   email: "dratini@pokemon.com",
   first_name: "Dratini",
-  last_name: "Dragon"
+  last_name: "Dragon",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "wooper@pokemon.com",
   first_name: "Wooper",
-  last_name: "Water"
+  last_name: "Water",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "gardevoir@pokemon.com",
   first_name: "Gardevoir",
-  last_name: "Psychic"
+  last_name: "Psychic",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "goomy@pokemon.com",
   first_name: "Goomy",
-  last_name: "Dragon"
+  last_name: "Dragon",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "lunala@pokemon.com",
   first_name: "Lunala",
-  last_name: "Psychic"
+  last_name: "Psychic",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "appletun@pokemon.com",
   first_name: "Appletun",
-  last_name: "Dragon"
+  last_name: "Dragon",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "litwick@pokemon.com",
   first_name: "Litwick",
-  last_name: "Fire"
+  last_name: "Fire",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "eevee@pokemon.com",
   first_name: "Eevee",
-  last_name: "Normal"
+  last_name: "Normal",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "oshawott@pokemon.com",
   first_name: "Oshawott",
-  last_name: "Water"
+  last_name: "Water",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 User.create!(
   email: "spheal@pokemon.com",
   first_name: "Spheal",
-  last_name: "Ice"
+  last_name: "Ice",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 Chat.create!(

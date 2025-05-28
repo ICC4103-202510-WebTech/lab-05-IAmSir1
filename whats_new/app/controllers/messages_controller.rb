@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
     before_action :set_message, only: [ :show, :edit, :update ]
+    before_action :authenticate_user!
+    load_and_authorize_resource
 
     def index
         @messages = Message.all

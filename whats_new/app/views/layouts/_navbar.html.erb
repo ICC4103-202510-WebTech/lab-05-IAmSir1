@@ -15,7 +15,15 @@
         <li class="nav-item">
           <%= link_to "Messages", messages_path, class: "nav-link" %>
         </li>
+        </li>
+        <li class="nav-item">
+          <%= button_to "Log out", destroy_user_session_path, class: "nav-link", :method => :delete %>
+        </li>
       </ul>
+      <span class="navbar-text">
+      <% if current_user %>
+        <span class="nav-link disabled">Hello, <strong><%= current_user.first_name.presence || current_user.email %></strong></span>
+      <% end %>
     </div>
   </div>
 </nav>
