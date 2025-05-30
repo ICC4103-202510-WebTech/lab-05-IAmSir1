@@ -21,7 +21,8 @@
                 <td><%= message.user_id %></td>
                 <td><%= message.body %></td>
                 <td><%= link_to 'View', message_path(message), class:"btn btn-success" %></td>
-                <td><%= link_to 'Edit', edit_message_path(message), class:"btn btn-success" %></td>
+                <td><% if can? :edit, message %>
+                <%= link_to 'Edit', edit_message_path(message), class:"btn btn-success" %><% end %></td>
             </tr>
             <% end %>
         </tbody>

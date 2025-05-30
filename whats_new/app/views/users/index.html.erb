@@ -21,16 +21,19 @@
                 <td><%= user.first_name %></td>
                 <td><%= user.last_name %></td>
                 <td><%= user.email %></td>
-                <td><%= user.messages.count %></td>
+                <td><% if can? :edit, user %>
+                <%= user.messages.count %><% else %>
+                No access to this information
+                <% end %></td>
                 <td><%= link_to 'View', user_path(user), class:"btn btn-success" %></td>
-                <td><%= link_to 'Edit', edit_user_path(user), class:"btn btn-success" %></td>
+                <td><% if can? :edit, user %>
+                <%= link_to "Edit", edit_user_path(user), class:"btn btn-success" %><% end %></td>
             </tr>
             <% end %>
         </tbody>
         </table>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto">
-    <%= link_to 'New user', new_user_path, class:"btn btn-success" %>
     <p></p>
     </div>
 </body>

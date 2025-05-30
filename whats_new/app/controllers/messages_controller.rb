@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     load_and_authorize_resource
 
     def index
-        @messages = Message.all
+        @messages = Message.accessible_by(current_ability)
     end
 
     def show
@@ -12,10 +12,12 @@ class MessagesController < ApplicationController
 
     def new
         @message = Message.new
+        @chats = current_user.sent_chats + current_user.received_chats
     end
 
     def create
         @message = Message.new message_params
+        @message.user_id = current_user.id
         if @message.save
             redirect_to messages_path
         else
@@ -24,6 +26,7 @@ class MessagesController < ApplicationController
     end
 
     def edit
+        @chats = current_user.sent_chats + current_user.received_chats
     end
 
     def update
@@ -37,7 +40,7 @@ class MessagesController < ApplicationController
     private
 
     def message_params
-        params.require(:message).permit(:chat_id, :user_id, :body)
+        params.require(:message).permit(:chat_id, :body)
     end
 
     def set_message

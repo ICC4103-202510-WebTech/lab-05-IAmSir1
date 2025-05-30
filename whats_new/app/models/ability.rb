@@ -8,17 +8,16 @@ class Ability
     #
     return unless user.present?
     can :read, User
-    can :read, Message do |message|
-      message.chat.users.include?(user)
-    end
-
-    can [:update, :destroy], Message, user_id: user.id
-
-    can :read, Chat do |chat|
-      chat.users.include?(user)
-    end
+    can [:read, :update], User, id: user.id
 
     can :create, Chat
+    can [:read, :update, :destroy], Chat, sender_id: user.id
+
+    can :create, Message 
+    can :read, Message, chat: { receiver_id: user.id }
+    can [:read, :update, :destroy], Message, user_id: user.id
+
+    #can :create, Chat
     #   can :read, :all
     #   return unless user.admin?
     #   can :manage, :all

@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
     load_and_authorize_resource
 
     def index
-        @chats = Chat.all
+        @chats = current_user.sent_chats + current_user.received_chats
     end
 
     def show
@@ -16,6 +16,7 @@ class ChatsController < ApplicationController
 
     def create
         @chat = Chat.new chat_params
+        @chat.sender_id = current_user.id
         if @chat.save
             redirect_to chats_path
         else
@@ -37,7 +38,7 @@ class ChatsController < ApplicationController
     private
 
     def chat_params
-        params.require(:chat).permit(:sender_id, :receiver_id)
+        params.require(:chat).permit(:receiver_id)
     end
 
     def set_chat

@@ -2,14 +2,10 @@
   <div class="container mt-4 mx-4">
     <div>
       <%= form.label :chat_id, "Chat" %>
-      <%= form.select :chat_id, Chat.all.collect { |c| ["Chat ##{c.id}", c.id] } %>
-      <p></p>
-    </div>
-  
-    <div>
-      <%= form.label :user_id, "Author" %>
-      <%= form.select :user_id, User.all.collect { |u| [u.email, u.id] } %>
-      <p></p>
+      <%= form.collection_select :chat_id, @chats, :id, ->(chat) {
+      other_user = chat.sender == current_user ? chat.receiver : chat.sender
+      "Chat with #{other_user.email}"
+      } %>
     </div>
   
     <div>

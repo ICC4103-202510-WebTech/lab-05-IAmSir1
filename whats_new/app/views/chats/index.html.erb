@@ -4,29 +4,35 @@
 
 <body>
     <div class="container mt-4 mx-4">
-        <table border="1" class="table table-secondary table-striped">
+    <table border="1" class="table table-secondary table-striped">
         <thead>
-            <tr>
+        <tr>
             <th>Sender ID</th>
+            <th>Sender Name</th>
             <th>Receiver ID</th>
+            <th>Receiver Name</th>
             <th>More Information</th>
-            <th></th>
-            </tr>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
-            <% @chats.each do |chat| %>
+        <% @chats.each do |chat| %>
             <tr>
-                <td><%= chat.sender_id %></td>
-                <td><%= chat.receiver_id %></td>
-                <td><%= link_to 'View', chat_path(chat), class:"btn btn-success" %></td>
-                <td><%= link_to 'Edit', edit_chat_path(chat), class:"btn btn-success" %></td>
+            <td><%= chat.sender_id %></td>
+            <td><%= "#{chat.sender.first_name} #{chat.sender.last_name}" %></td>
+            <td><%= chat.receiver_id %></td>
+            <td><%= "#{chat.receiver.first_name} #{chat.receiver.last_name}" %></td>
+            <td><%= link_to 'View', chat_path(chat), class: "btn btn-success" %></td>
+            <td><% if can? :edit, chat %>
+            <%= link_to 'Edit', edit_chat_path(chat), class: "btn btn-success" %><% end %></td>
             </tr>
-            <% end %>
+        <% end %>
         </tbody>
-        </table>
+    </table>
     </div>
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <%= link_to 'New chat', new_chat_path, class:"btn btn-success" %>
-        <p></p>
-    </div>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to 'New chat', new_chat_path, class: "btn btn-success" %>
+  <p></p>
+</div>
+
 </body>
