@@ -12,6 +12,9 @@ class Ability
 
     can :create, Chat
     can [:read, :update, :destroy], Chat, sender_id: user.id
+    can :read, Chat do |chat|
+      chat.sender_id == user.id || chat.receiver_id == user.id
+    end
 
     can :create, Message 
     can :read, Message, chat: { receiver_id: user.id }

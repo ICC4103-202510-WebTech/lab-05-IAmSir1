@@ -29,7 +29,9 @@
 
     <p></p>
     <%= link_to 'Back', chats_path, class: "btn btn-success" %>
-    <%= link_to 'Edit', edit_chat_path, class:"btn btn-success" %>
+    <% if can? :edit, @chat %>
+        <%= link_to 'Edit', edit_chat_path(@chat), class: "btn btn-success" %>
+    <% end %>
     <%= link_to 'New chat', new_chat_path, class:"btn btn-success" %>
     
 </div>

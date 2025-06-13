@@ -18,6 +18,9 @@
         <li class="nav-link active">
           <%= link_to "Messages", messages_path, class: "nav-link active" %>
         </li>
+        <li class="nav-link active">
+          <%= link_to "My Inbox", chats_path, class: "nav-link active" %>
+        </li>
         </li>
         <li class="nav-link active">
           <%= button_to "Log out", destroy_user_session_path, class: "nav-link", :method => :delete %>

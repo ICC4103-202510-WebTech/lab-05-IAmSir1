@@ -20,7 +20,9 @@
     
     <p></p>
     <%= link_to 'Back', messages_path, class: "btn btn-success" %>
-    <%= link_to 'Edit', edit_message_path, class: "btn btn-success" %>
+    <% if can? :edit, @message %>
+        <%= link_to 'Edit', edit_message_path(@message), class: "btn btn-success" %>
+    <% end %>
     <%= link_to 'New message', new_message_path, class:"btn btn-success" %>
     
 </div>
